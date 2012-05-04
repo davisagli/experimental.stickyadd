@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="experimental.stickyadd">
+
+  <include package="five.globalrequest" />
+
+  <subscriber handler=".handlers.set_cookie" />
+  <subscriber handler=".handlers.expire_cookie" />
+
+</configure>
