@@ -1,6 +1,4 @@
-import time
 import uuid
-from email.Utils import formatdate
 from zope.component import adapter
 from zope.globalrequest import getRequest
 from ZPublisher.interfaces import IPubSuccess
@@ -20,5 +18,5 @@ def set_cookie(object, event):
 @adapter(IPubSuccess)
 def expire_cookie(event):
     request = event.request
-    if '__stick' not in request.response.cookies:
+    if '__stick' not in request.response.cookies and '__stick' in request.cookies:
         request.response.expireCookie('__stick', path='/')
